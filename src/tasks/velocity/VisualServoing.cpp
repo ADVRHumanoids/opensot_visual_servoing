@@ -334,8 +334,8 @@ void VisualServoing::_log(XBot::MatLogger2::Ptr logger)
                 f[i] = s[i];
                 fd[i] = sd[i];
             }
-            logger->add(_task_id +"_s"+std::to_string(j), f);
-            logger->add(_task_id +"_sd"+std::to_string(j), fd);
+            // logger->add(_task_id +"_s"+std::to_string(j), f);
+            // logger->add(_task_id +"_sd"+std::to_string(j), fd);
             j++;
         }
     }
