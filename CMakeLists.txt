@@ -73,6 +73,8 @@ add_library(CartesioVisualServoing SHARED
 
 target_link_libraries(CartesioVisualServoing OpenSoTVisualServoingTask ${cartesian_interface_LIBRARIES} ${catkin_LIBRARIES})
 
+add_dependencies(CartesioVisualServoing ${PROJECT_NAME}_generate_messages_cpp)
+
 install(TARGETS CartesioVisualServoing
         DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
         LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
