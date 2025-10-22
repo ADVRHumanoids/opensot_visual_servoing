@@ -6,7 +6,7 @@
 #include <cartesian_interface/sdk/ros/server_api/TaskRos.h>
 #include <cartesian_interface/sdk/ros/client_api/TaskRos.h>
 
-#include <opensot_visual_seroving/tasks/velocity/VisualServoing.h>
+#include <opensot_visual_servoing/tasks/velocity/VisualServoing.h>
 
 #include <opensot_visual_servoing/VisualFeatures.h>
 

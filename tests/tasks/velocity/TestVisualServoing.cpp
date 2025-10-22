@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <opensot_visual_seroving/tasks/velocity/VisualServoing.h>
+#include <opensot_visual_servoing/tasks/velocity/VisualServoing.h>
 #include <XBotInterface/ModelInterface.h>
 #include <ros/package.h>
 #include <boost/make_shared.hpp>
@@ -14,7 +14,7 @@
 #include <visp3/visual_features/vpFeatureBuilder.h>
 #include <visp3/vs/vpServo.h>
 
-#include <opensot_visual_seroving/utils/Utils.h>
+#include <opensot_visual_servoing/utils/Utils.h>
 #include <OpenSoT/constraints/velocity/VelocityLimits.h>
 
 #include <OpenSoT/constraints/TaskToConstraint.h>

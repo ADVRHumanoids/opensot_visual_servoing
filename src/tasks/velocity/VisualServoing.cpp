@@ -1,7 +1,7 @@
-#include <opensot_visual_seroving/tasks/velocity/VisualServoing.h>
+#include <opensot_visual_servoing/tasks/velocity/VisualServoing.h>
 #include <visp/vpServo.h>
 #include <boost/make_shared.hpp>
-#include <opensot_visual_seroving/utils/Utils.h>
+#include <opensot_visual_servoing/utils/Utils.h>
 
 
 using namespace OpenSoT::tasks::velocity;

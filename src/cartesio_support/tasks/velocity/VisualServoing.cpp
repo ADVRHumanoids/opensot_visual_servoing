@@ -1,7 +1,7 @@
 #include "VisualServoing.h"
 #include <visp/vpFeaturePoint.h>
 #include <visp/vpGenericFeature.h>
-#include <opensot_visual_seroving/utils/Utils.h>
+#include <opensot_visual_servoing/utils/Utils.h>
 
 using namespace XBot::Cartesian::velocity;
 
