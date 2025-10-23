@@ -1,4 +1,4 @@
-#include "VisualServoing.h"
+#include <opensot_visual_servoing/cartesio_support/tasks/velocity/VisualServoing.h>
 #include <visp/vpFeaturePoint.h>
 #include <visp/vpGenericFeature.h>
 #include <opensot_visual_servoing/utils/Utils.h>
