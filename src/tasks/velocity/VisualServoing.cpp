@@ -5,6 +5,7 @@
 
 
 using namespace OpenSoT::tasks::velocity;
+using namespace opensot_visual_servoing::utils;
 
 VisualServoing::VisualServoing(std::string task_id,
                                const Eigen::VectorXd &x,

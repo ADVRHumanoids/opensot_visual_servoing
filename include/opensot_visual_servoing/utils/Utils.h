@@ -5,7 +5,13 @@
 #include <visp/vpMatrix.h>
 #include <visp/vpColVector.h>
 #include <visp/vpBasicFeature.h>
+#include <visp/vpFeaturePoint.h>
 #include <list>
+#include <opensot_visual_servoing/VisualFeatures.h>
+#include <opensot_visual_servoing/VisualFeature.h>
+
+namespace opensot_visual_servoing {
+namespace utils {
 
 template<typename Derived>
 /**
@@ -64,6 +70,23 @@ std::list<vpBasicFeature*> toGenericFeature(const std::list<FeatureType*>& featu
     return generic_features;
 }
 
+/**
+ * @brief toVisualFeatureMsg transform a list of visual feature in a visual feature msg
+ * @param feature_list list of features
+ * @param features_type type of feature (point, line, etc...)
+ * @return pensot_visual_servoing::VisualFeatures (normalized coordinates)
+ */
+opensot_visual_servoing::VisualFeatures toVisualFeatureMsg(
+    const std::list<vpBasicFeature * >& feature_list,
+    const std::string& features_type = "vpFeaturePoint");
 
+/**
+ * @brief getFeaturesFromMsg transform a feature msg in a list of features
+ * @param msg visaul feature msg (in normalized coordinates)
+ * @return list of features (in normalized coordinates)
+ */
+std::list<vpBasicFeature*> getFeaturesFromMsg(opensot_visual_servoing::VisualFeaturesConstPtr msg);
 
+} // namespace utils
+} // namespace opensot_visual_servoing
 #endif

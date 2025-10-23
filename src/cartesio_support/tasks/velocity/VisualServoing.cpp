@@ -1,7 +1,4 @@
 #include <opensot_visual_servoing/cartesio_support/tasks/velocity/VisualServoing.h>
-#include <visp/vpFeaturePoint.h>
-#include <visp/vpGenericFeature.h>
-#include <opensot_visual_servoing/utils/Utils.h>
 
 using namespace XBot::Cartesian::velocity;
 
@@ -188,27 +185,6 @@ bool VisualServoingImpl::setDesiredFeatures(std::list<vpBasicFeature *>& desired
     return true;
 }
 
-/** **/
-std::list<vpBasicFeature*> VisualServoingRos::getFeaturesFromMsg(opensot_visual_servoing::VisualFeaturesConstPtr msg)
-{
-    std::list<vpBasicFeature *> generic_features;
-
-    std::list<vpFeaturePoint *> point_features;
-    for(unsigned int i = 0; i < msg->features.size(); ++i)
-    {
-        opensot_visual_servoing::VisualFeature f = msg->features[i];
-        if(f.type == opensot_visual_servoing::VisualFeature::POINT)
-        {
-            point_features.push_back(new vpFeaturePoint());
-            point_features.back()->buildFrom(f.x, f.y, f.Z);
-         }
-        //else if (f.type == opensot_visual_servoing::VisualFeature::LINE) ...
-    }
-
-    for(auto pf : point_features)
-        generic_features.push_back(pf);
-    return generic_features;
-}
 
 VisualServoingRos::VisualServoingRos(TaskDescription::Ptr task, RosContext::Ptr context):
     TaskRos(task, context), _visual_servoing_init(false)
@@ -255,31 +231,6 @@ VisualServoingRos::VisualServoingRos(TaskDescription::Ptr task, RosContext::Ptr 
 
     /* Register type name */
     registerType("VisualServoing");
-}
-
-opensot_visual_servoing::VisualFeatures
-VisualServoingRos::toVisualFeatureMsg(const std::list<vpBasicFeature * >& feature_list,
-                                     const std::string& features_type)
-{
-    opensot_visual_servoing::VisualFeatures msg;
-    opensot_visual_servoing::VisualFeature feature;
-
-    if(features_type == "vpFeaturePoint")
-    {
-        for(auto f : feature_list)
-        {
-           vpFeaturePoint * p = (vpFeaturePoint*)(f);
-           feature.type = opensot_visual_servoing::VisualFeature::POINT;
-           feature.x = p->get_x();
-           feature.y = p->get_y();
-           feature.Z = p->get_Z(); //
-           msg.features.push_back(feature);
-        }
-    }
-
-    msg.header.stamp = ros::Time::now();
-
-    return msg;
 }
 
 
