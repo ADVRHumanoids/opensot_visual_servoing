@@ -1,6 +1,7 @@
 #include <opensot_visual_servoing/cartesio_support/tasks/velocity/VisualServoing.h>
 
 using namespace XBot::Cartesian::velocity;
+using namespace opensot_visual_servoing::utils;
 
 namespace  {
 
